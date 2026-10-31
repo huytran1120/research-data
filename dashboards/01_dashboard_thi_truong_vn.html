@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Báo Cáo Chuyên Sâu: Thị Trường Công Nghệ Cũ Việt Nam</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0f172a',
+                            navy: '#1e293b',
+                            blue: '#2563eb',
+                            cyan: '#0891b2',
+                            teal: '#0d9488',
+                            emerald: '#059669',
+                            amber: '#d97706',
+                            rose: '#e11d48',
+                            purple: '#7c3aed'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Styles for Strict Container Sizing */
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 320px;
+            max-height: 380px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 360px;
+            }
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-cyan-500 selection:text-white">
+
+    <!-- Top Navigation / Progress Indicator -->
+    <nav class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur border-b border-slate-800 text-white py-3 px-4 sm:px-8">
+        <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-4">
+            <div class="flex items-center gap-2">
+                <span class="text-xl font-black text-cyan-400">VN-TECH</span>
+                <span class="text-xs uppercase tracking-widest text-slate-400 border-l border-slate-700 pl-2">Market Intelligence</span>
+            </div>
+            <div class="hidden md:flex items-center space-x-6 text-xs font-semibold uppercase tracking-wider text-slate-300">
+                <a href="#macro" class="hover:text-cyan-400 transition">Vĩ Mô & Quy Mô</a>
+                <a href="#channels" class="hover:text-cyan-400 transition">Kênh Phân Phối</a>
+                <a href="#consumer" class="hover:text-cyan-400 transition">Tâm Lý Khách Hàng</a>
+                <a href="#margins" class="hover:text-cyan-400 transition">Biên Lợi Nhuận</a>
+                <a href="#legal" class="hover:text-cyan-400 transition">Pháp Lý & Thuế</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Header Banner -->
+    <header class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white py-12 md:py-16 px-4 sm:px-8 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-bold uppercase tracking-widest mb-4">
+                ✦ Báo Cáo Phân Tích Ngành Bán Lẻ Công Nghệ
+            </div>
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-4 leading-tight">
+                CẤU TRÚC THỊ TRƯỜNG CÔNG NGHỆ ĐÃ QUA SỬ DỤNG TẠI VIỆT NAM
+            </h1>
+            <p class="text-slate-300 max-w-3xl text-sm sm:text-base leading-relaxed mb-8">
+                Giải mã toàn cảnh hệ sinh thái thiết bị điện tử second-hand, refurbished và trade-in: Sự dịch chuyển từ giao dịch chợ trời phi chính thức sang mô hình chuẩn hóa, phân tích sâu tâm lý người tiêu dùng và định lượng biên lợi nhuận thực tế.
+            </p>
+
+            <!-- Key Metric KPI Cards Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mt-6">
+                <div class="bg-slate-800/80 border border-slate-700/60 rounded-xl p-4 sm:p-5 shadow-lg">
+                    <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Quy Mô Đồ Cũ VN (2026E)</div>
+                    <div class="text-2xl sm:text-3xl font-black text-cyan-400 mt-1">5,1 Tỷ USD</div>
+                    <div class="text-xs text-emerald-400 font-medium mt-1">▲ Tăng trưởng 2 chữ số</div>
+                </div>
+                <div class="bg-slate-800/80 border border-slate-700/60 rounded-xl p-4 sm:p-5 shadow-lg">
+                    <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Thị Trường PC/Laptop Cũ</div>
+                    <div class="text-2xl sm:text-3xl font-black text-blue-400 mt-1">&gt; 8.000 Tỷ</div>
+                    <div class="text-xs text-slate-300 font-medium mt-1">VND / năm toàn quốc</div>
+                </div>
+                <div class="bg-slate-800/80 border border-slate-700/60 rounded-xl p-4 sm:p-5 shadow-lg">
+                    <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Lượng Rác Thải Điện Tử</div>
+                    <div class="text-2xl sm:text-3xl font-black text-amber-400 mt-1">516.000 Tấn</div>
+                    <div class="text-xs text-amber-300 font-medium mt-1">Nguồn cung Khai thác Đô thị</div>
+                </div>
+                <div class="bg-slate-800/80 border border-slate-700/60 rounded-xl p-4 sm:p-5 shadow-lg">
+                    <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Tỷ Lệ Trade-In Trả Góp</div>
+                    <div class="text-2xl sm:text-3xl font-black text-teal-400 mt-1">65%</div>
+                    <div class="text-xs text-slate-300 font-medium mt-1">Khách chọn đòn bẩy kép</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-8 py-10 space-y-16">
+
+        <!-- SECTION 1: MACRO & MARKET SIZE -->
+        <section id="macro" class="scroll-mt-20">
+            <div class="mb-6">
+                <span class="text-xs font-bold text-cyan-600 uppercase tracking-widest">Phần 01</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">Quy Mô & Động Lực Nền Kinh Tế Tuần Hoàn</h2>
+            </div>
+
+            <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200/80 mb-8">
+                <p class="text-slate-700 leading-relaxed mb-6">
+                    Thị trường đồ điện tử đã qua sử dụng tại Việt Nam đang bước vào chu kỳ tái cấu trúc mang tính bước ngoặt. Sự kết hợp giữa làn sóng xả thải công nghệ, vòng đời sản phẩm bị rút ngắn và áp lực chi tiêu hộ gia đình đã biến mảng kinh doanh thứ cấp thành nền kinh tế tuần hoàn trị giá hàng tỷ USD. Khai thác vật liệu đô thị (urban mining) và tái chế nguyên chiếc đang dần được chính thức hóa.
+                </p>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <div class="bg-slate-900 text-white p-6 rounded-xl shadow-inner mb-6">
+                            <h3 class="text-lg font-bold text-cyan-400 mb-2">✦ Dữ Liệu Tăng Trưởng Trọng Tâm</h3>
+                            <ul class="space-y-3 text-sm text-slate-300">
+                                <li class="flex items-start gap-2">
+                                    <span class="text-cyan-400 font-bold">●</span>
+                                    <span><strong>Toàn cầu:</strong> Thị trường thiết bị điện tử tân trang (Refurbished) đạt 53,24 tỷ USD năm 2024.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-blue-400 font-bold">●</span>
+                                    <span><strong>Việt Nam:</strong> Tổng quy mô thương mại đồ cũ đạt cột mốc 5,1 tỷ USD vào năm 2026.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-emerald-400 font-bold">●</span>
+                                    <span><strong>Sàn Chợ Tốt (Carousell):</strong> Đã kéo dài vòng đời cho hơn 33,9 triệu thiết bị điện tử trong 1 thập kỷ.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-amber-400 font-bold">●</span>
+                                    <span><strong>Sàn TMĐT (Metric):</strong> Doanh số laptop cũ đạt trên 6,1 tỷ VNĐ/quý và tăng trưởng liên tục.</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <p class="text-xs text-slate-500 italic">
+                            * Nguồn tổng hợp: Business Research Insights, UN Global E-waste Monitor, Metric.vn & Carousell Recommerce Index.
+                        </p>
+                    </div>
+
+                    <!-- Chart 1 Container -->
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                        <h4 class="text-sm font-bold text-slate-800 mb-3 text-center">Dự Báo Tăng Trưởng Quy Mô Thị Trường Đồ Cũ (Tỷ USD)</h4>
+                        <div class="chart-container">
+                            <canvas id="chartMarketSize"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- SECTION 2: DISTRIBUTION CHANNELS -->
+        <section id="channels" class="scroll-mt-20">
+            <div class="mb-6">
+                <span class="text-xs font-bold text-blue-600 uppercase tracking-widest">Phần 02</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">Cấu Trúc Đa Tầng Của Các Kênh Phân Phối</h2>
+            </div>
+
+            <p class="text-slate-700 leading-relaxed mb-6">
+                Thị trường không vận hành dưới dạng một khối đồng nhất mà được phân hóa rõ rệt thành 4 tầng kênh phân phối. Mỗi tầng phục vụ tệp khách hàng có mức độ chấp nhận rủi ro và am hiểu kỹ thuật hoàn toàn khác biệt.
+            </p>
+
+            <!-- Channel Grid Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <!-- Channel 1 -->
+                <div class="bg-white rounded-xl p-5 border border-slate-200 shadow-sm hover:shadow-md transition">
+                    <div class="w-10 h-10 rounded-lg bg-blue-100 text-blue-700 flex items-center justify-center font-black text-lg mb-3">01</div>
+                    <h3 class="font-bold text-slate-900 text-base mb-1">Chuỗi Bán Lẻ Hiện Đại</h3>
+                    <div class="text-xs font-semibold text-blue-600 mb-2">B2C & Thu Cũ Đổi Mới (Trade-in)</div>
+                    <p class="text-xs text-slate-600 leading-relaxed mb-3">
+                        CellphoneS, FPT Shop, Di Động Việt. Áp dụng quy trình kiểm định 32 bước, hợp tác đối tác CompAsia/SKTEL, bảo hành tiệm cận máy mới.
+                    </p>
+                    <span class="inline-block bg-blue-50 text-blue-700 border border-blue-200 text-[10px] font-bold px-2 py-0.5 rounded">Rủi ro: Cực thấp</span>
+                </div>
+
+                <!-- Channel 2 -->
+                <div class="bg-white rounded-xl p-5 border border-slate-200 shadow-sm hover:shadow-md transition">
+                    <div class="w-10 h-10 rounded-lg bg-cyan-100 text-cyan-700 flex items-center justify-center font-black text-lg mb-3">02</div>
+                    <h3 class="font-bold text-slate-900 text-base mb-1">Sàn TMĐT & Recommerce</h3>
+                    <div class="text-xs font-semibold text-cyan-600 mb-2">Chợ Tốt, Shopee, TikTok Shop</div>
+                    <p class="text-xs text-slate-600 leading-relaxed mb-3">
+                        Nơi tạo "mỏ neo giá" (price anchor) khảo sát thị trường. Tăng trưởng mạnh mảng laptop/linh kiện lướt có gian hàng đảm bảo.
+                    </p>
+                    <span class="inline-block bg-cyan-50 text-cyan-700 border border-cyan-200 text-[10px] font-bold px-2 py-0.5 rounded">Rủi ro: Trung bình</span>
+                </div>
+
+                <!-- Channel 3 -->
+                <div class="bg-white rounded-xl p-5 border border-slate-200 shadow-sm hover:shadow-md transition">
+                    <div class="w-10 h-10 rounded-lg bg-amber-100 text-amber-700 flex items-center justify-center font-black text-lg mb-3">03</div>
+                    <h3 class="font-bold text-slate-900 text-base mb-1">Diễn Đàn & Mạng Xã Hội</h3>
+                    <div class="text-xs font-semibold text-amber-600 mb-2">Voz, Tinh Tế, Facebook Groups</div>
+                    <p class="text-xs text-slate-600 leading-relaxed mb-3">
+                        Giao dịch C2C thuần túy. Tối ưu chi phí, giá rẻ hơn cửa hàng 10-20% nhưng đối mặt bất cân xứng thông tin và thợ trà trộn.
+                    </p>
+                    <span class="inline-block bg-amber-50 text-amber-700 border border-amber-200 text-[10px] font-bold px-2 py-0.5 rounded">Rủi ro: Cao</span>
+                </div>
+
+                <!-- Channel 4 -->
+                <div class="bg-white rounded-xl p-5 border border-slate-200 shadow-sm hover:shadow-md transition">
+                    <div class="w-10 h-10 rounded-lg bg-rose-100 text-rose-700 flex items-center justify-center font-black text-lg mb-3">04</div>
+                    <h3 class="font-bold text-slate-900 text-base mb-1">Chợ Đầu Mối Truyền Thống</h3>
+                    <div class="text-xs font-semibold text-rose-600 mb-2">Chợ Nhật Tảo & Chợ Trời</div>
+                    <p class="text-xs text-slate-600 leading-relaxed mb-3">
+                        Chuyển dịch từ bán lẻ B2C sang trung tâm bán sỉ linh kiện thô, rã xác thiết bị và khai thác vật tư sửa chữa cho thợ toàn quốc.
+                    </p>
+                    <span class="inline-block bg-rose-50 text-rose-700 border border-rose-200 text-[10px] font-bold px-2 py-0.5 rounded">Rủi ro: Rất cao (Thợ)</span>
+                </div>
+            </div>
+
+            <!-- Chart 2: Radar Chart Comparison -->
+            <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
+                <h3 class="text-base font-bold text-slate-900 mb-2 text-center">Ma Trận Đánh Giá Đặc Tính Các Kênh Phân Phối</h3>
+                <p class="text-xs text-slate-500 text-center mb-6">So sánh 5 tiêu chí chiến lược giữa các phương thức giao dịch công nghệ cũ</p>
+                <div class="chart-container">
+                    <canvas id="chartChannelRadar"></canvas>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- SECTION 3: CONSUMER PSYCHOLOGY -->
+        <section id="consumer" class="scroll-mt-20">
+            <div class="mb-6">
+                <span class="text-xs font-bold text-teal-600 uppercase tracking-widest">Phần 03</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">Hành Vi & Tâm Lý Tệp Khách Hàng Thứ Cấp</h2>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+                <!-- Driver 1 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                    <div class="text-teal-600 font-extrabold text-lg mb-2">01. Tối Ưu Cost/Performance</div>
+                    <h3 class="font-bold text-slate-900 mb-2">Nghịch Lý "AI PC" & Giá Cao</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        Các dòng laptop AI PC mới có giá từ 22-35 triệu nhưng hiệu năng thực tế chỉ tăng 15-20%. Nhóm dân kỹ thuật/thiết kế ưu tiên mua flagship cũ (như MacBook Pro M1 Max ~31 triệu) để có cấu hình vượt trội với chi phí chỉ bằng một nửa máy mới.
+                    </p>
+                </div>
+
+                <!-- Driver 2 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                    <div class="text-rose-600 font-extrabold text-lg mb-2">02. Nỗi Ám Ảnh Rủi Ro</div>
+                    <h3 class="font-bold text-slate-900 mb-2">Kỹ Nghệ "Kích Pin" & Hàn Khò</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        Khách hàng ám ảnh bởi thủ thuật dùng thiết bị ngoại vi reset chu kỳ sạc pin iPhone về 0, giấu máy dính khóa quản trị công ty (MDM), hoặc đóng lại chip đồ họa (VGA) chết nhiệt. Điều này thúc đẩy xu hướng chấp nhận trả "phí bảo hiểm niềm tin" cho chuỗi lớn.
+                    </p>
+                </div>
+
+                <!-- Driver 3 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                    <div class="text-indigo-600 font-extrabold text-lg mb-2">03. Đòn Bẩy Tài Chính</div>
+                    <h3 class="font-bold text-slate-900 mb-2">Combo Trade-In & Trả Góp</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        Trên 65% khách hàng tại chuỗi bán lẻ lựa chọn kết hợp vừa bán lại máy cũ vừa trả góp 0% cho phần chênh lệch mua máy mới. Mô hình này giúp tối ưu hóa dòng tiền cá nhân và loại bỏ rào cản tài chính chi trả ban đầu.
+                    </p>
+                </div>
+            </div>
+
+            <!-- HTML Visual Diagram: 32-Step Quality Inspection Process -->
+            <div class="bg-slate-900 text-white rounded-2xl p-6 sm:p-8 shadow-md">
+                <h3 class="text-lg font-bold text-cyan-400 mb-2">Quy Trình Chuẩn Hóa Kiểm Định Đồ Cũ (Tiêu Chuẩn Chuỗi Bán Lẻ)</h3>
+                <p class="text-xs text-slate-400 mb-6">Thang phân loại A-F giúp minh bạch hóa giá trị thiết bị thu mua</p>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                    <div class="bg-slate-800/90 border border-slate-700 p-4 rounded-xl">
+                        <div class="text-cyan-400 font-black text-2xl mb-1">Loại A/S</div>
+                        <div class="text-xs font-bold text-slate-200 mb-1">Like New / Lướt 99%</div>
+                        <div class="text-[11px] text-slate-400">Không vết trầy, pin &gt;90%, linh kiện nguyên bản chính hãng.</div>
+                    </div>
+                    <div class="bg-slate-800/90 border border-slate-700 p-4 rounded-xl">
+                        <div class="text-blue-400 font-black text-2xl mb-1">Loại B</div>
+                        <div class="text-xs font-bold text-slate-200 mb-1">Đã Sử Dụng (95-98%)</div>
+                        <div class="text-[11px] text-slate-400">Trầy xước nhỏ, vỏ đẹp, phần cứng hoàn hảo chưa qua sửa chữa.</div>
+                    </div>
+                    <div class="bg-slate-800/90 border border-slate-700 p-4 rounded-xl">
+                        <div class="text-amber-400 font-black text-2xl mb-1">Loại C/D</div>
+                        <div class="text-xs font-bold text-slate-200 mb-1">Cũ Cấn Móp (90%)</div>
+                        <div class="text-[11px] text-slate-400">Vỏ móp xước rõ, pin chai, cần thay thế vỏ hoặc vệ sinh sâu.</div>
+                    </div>
+                    <div class="bg-slate-800/90 border border-slate-700 p-4 rounded-xl">
+                        <div class="text-rose-400 font-black text-2xl mb-1">Loại F</div>
+                        <div class="text-xs font-bold text-slate-200 mb-1">Hàng Nát / Xả Tải</div>
+                        <div class="text-[11px] text-slate-400">Hỏng màn hình, chết mainboard -> Chuyển rã xác thu linh kiện.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- SECTION 4: MARGINS & COST STRUCTURE -->
+        <section id="margins" class="scroll-mt-20">
+            <div class="mb-6">
+                <span class="text-xs font-bold text-amber-600 uppercase tracking-widest">Phần 04</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">Biên Lợi Nhuận & Cấu Trúc Chi Phí Cốt Lõi</h2>
+            </div>
+
+            <p class="text-slate-700 leading-relaxed mb-6">
+                Khác biệt hoàn toàn so với biên lợi nhuận gộp cực mỏng (3-5%) của đồ mới đập hộp, ngành đồ cũ mang lại tỷ suất sinh lời vượt trội. Tuy nhiên, rủi ro tồn kho, bảo hành và chi phí phục hồi linh kiện lại biến động mạnh theo từng ngành hàng.
+            </p>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                <!-- Chart 3: Smartphone Margins -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                    <h3 class="text-base font-bold text-slate-900 mb-1">Biên Lợi Nhuận Gộp Điện Thoại Theo Mô Hình</h3>
+                    <p class="text-xs text-slate-500 mb-4">So sánh tỷ suất sinh lời giữa các kênh kinh doanh Smartphone cũ</p>
+                    <div class="chart-container">
+                        <canvas id="chartPhoneMargin"></canvas>
+                    </div>
+                    <p class="text-xs text-slate-600 mt-4 leading-relaxed bg-slate-50 p-3 rounded-lg border border-slate-200">
+                        <strong>Ghi chú:</strong> Mô hình Trade-in có biên gộp thấp (10-15%) nhưng lợi nhuận thực tế đến từ việc bán kèm máy mới. Mô hình Sửa chữa + Bán đạt biên cao nhất (50-70%) nhờ thu mua máy xác giá rẻ và tự phục hồi linh kiện.
+                    </p>
+                </div>
+
+                <!-- Chart 4: Laptop Depreciation & Margin -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                    <h3 class="text-base font-bold text-slate-900 mb-1">Laptop: Tỷ Lệ Khấu Hao & Biên Lợi Nhuận</h3>
+                    <p class="text-xs text-slate-500 mb-4">Phân tích theo phân khúc dòng máy tính xách tay</p>
+                    <div class="chart-container">
+                        <canvas id="chartLaptopData"></canvas>
+                    </div>
+                    <p class="text-xs text-slate-600 mt-4 leading-relaxed bg-slate-50 p-3 rounded-lg border border-slate-200">
+                        <strong>Ghi chú:</strong> Dòng Business (ThinkPad/Latitude) có biên ổn định và thanh khoản cao nhất. Dòng Gaming/Workstation khấu hao nhanh nhất (40-45% năm đầu) do linh kiện hoạt động tải nặng liên tục.
+                    </p>
+                </div>
+            </div>
+
+            <!-- PC Components Profit & Risk Matrix -->
+            <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm mb-8">
+                <h3 class="text-base font-bold text-slate-900 mb-2">Định Lượng Rủi Ro & Lợi Nhuận Linh Kiện Máy Tính (PC Components)</h3>
+                <p class="text-xs text-slate-500 mb-6">Đặc thù xoay vòng vốn và rủi ro kỹ thuật theo từng linh kiện phần cứng</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="border border-slate-200 rounded-xl p-4 bg-slate-50">
+                        <div class="text-xs font-bold text-slate-500 uppercase">CPU (Vi Xử Lý)</div>
+                        <div class="text-lg font-black text-slate-900 mt-1">Biên: &lt; 10%</div>
+                        <div class="text-xs text-emerald-600 font-semibold mt-1">Rủi ro bảo hành: Rất thấp</div>
+                        <p class="text-xs text-slate-600 mt-2">Linh kiện bán dẫn trơ, không hao mòn cơ học. Xoay vòng vốn nhanh, giữ giá tốt.</p>
+                    </div>
+
+                    <div class="border border-slate-200 rounded-xl p-4 bg-slate-50">
+                        <div class="text-xs font-bold text-slate-500 uppercase">RAM (Bộ Nhớ Trong)</div>
+                        <div class="text-lg font-black text-slate-900 mt-1">Biên: 8% - 12%</div>
+                        <div class="text-xs text-emerald-600 font-semibold mt-1">Rủi ro bảo hành: Thấp</div>
+                        <p class="text-xs text-slate-600 mt-2">Bền bỉ, dễ kiểm tra qua phần mềm. Là món hàng dễ bán kèm (Upsell) nhất.</p>
+                    </div>
+
+                    <div class="border border-slate-200 rounded-xl p-4 bg-slate-50">
+                        <div class="text-xs font-bold text-slate-500 uppercase">Bo Mạch Chủ (Main)</div>
+                        <div class="text-lg font-black text-slate-900 mt-1">Biên: 20% - 35%</div>
+                        <div class="text-xs text-rose-600 font-semibold mt-1">Rủi ro bảo hành: Cao</div>
+                        <p class="text-xs text-slate-600 mt-2">Dễ lỗi tụ, cong chân socket, ẩm mốc. Chi phí thẩm định và vệ sinh lớn.</p>
+                    </div>
+
+                    <div class="border border-slate-200 rounded-xl p-4 bg-slate-50">
+                        <div class="text-xs font-bold text-slate-500 uppercase">VGA (Card Đồ Họa)</div>
+                        <div class="text-lg font-black text-slate-900 mt-1">Biên: 30% - 50%</div>
+                        <div class="text-xs text-rose-600 font-semibold mt-1">Rủi ro bảo hành: Cực cao</div>
+                        <p class="text-xs text-slate-600 mt-2">Nhiều hàng "trâu cày" tiền số. Cần test FurMark 30 phút. Thu mua rẻ, biên rất dày.</p>
+                    </div>
+                </div>
+
+                <!-- Upsell Leverage Box -->
+                <div class="mt-6 p-4 rounded-xl bg-amber-50 border border-amber-200 flex flex-wrap items-center justify-between gap-4">
+                    <div>
+                        <h4 class="font-bold text-amber-900 text-sm">✦ Đòn Bẩy Doanh Thu Từ Dịch Vụ Gia Tăng (Upsell)</h4>
+                        <p class="text-xs text-amber-800 mt-0.5">Nâng cấp RAM 8GB (+850k VNĐ), Ổ cứng SSD (+800k VNĐ), Vệ sinh tra keo tản nhiệt Tra keo MX4 (+150-300k VNĐ)</p>
+                    </div>
+                    <span class="text-xs font-extrabold text-amber-900 bg-amber-200/80 px-3 py-1.5 rounded-lg">Tăng +20% Lợi Nhận/Đơn</span>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- SECTION 5: LEGAL & TAX -->
+        <section id="legal" class="scroll-mt-20">
+            <div class="mb-6">
+                <span class="text-xs font-bold text-purple-600 uppercase tracking-widest">Phần 05</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">Rào Cản Pháp Lý & Minh Bạch Thuế Khóa</h2>
+            </div>
+
+            <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm">
+                <div class="flex flex-wrap items-center justify-between gap-4 mb-6 border-b border-slate-200 pb-4">
+                    <div>
+                        <h3 class="text-lg font-bold text-slate-900">Nghị Định 252/2026/NĐ-CP (Nghị Định 254)</h3>
+                        <p class="text-xs text-slate-500">Bước ngoặt thắt chặt quản lý thuế trong thương mại điện tử và mua bán đồ cũ</p>
+                    </div>
+                    <span class="bg-purple-100 text-purple-800 text-xs font-bold px-3 py-1 rounded-full border border-purple-200">Siết chặt quản lý sàn</span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                        <div class="text-purple-600 font-black text-xl mb-1">01</div>
+                        <h4 class="font-bold text-slate-900 text-sm mb-1">Khấu Trừ Thuế Tại Nguồn</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Các sàn TMĐT (Shopee, TikTok, Chợ Tốt) trực tiếp khấu trừ và nộp thay thuế GTGT & TNCN ngay khi đơn hàng hoàn tất.
+                        </p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                        <div class="text-purple-600 font-black text-xl mb-1">02</div>
+                        <h4 class="font-bold text-slate-900 text-sm mb-1">Ngưỡng Kê Khai Doanh Thu</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Cá nhân kinh doanh có doanh thu &gt;100 triệu VNĐ/năm bắt buộc đăng ký và kê khai thuế. Doanh thu &gt;500 triệu thực hiện đầy đủ nghĩa vụ thuế.
+                        </p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                        <div class="text-purple-600 font-black text-xl mb-1">03</div>
+                        <h4 class="font-bold text-slate-900 text-sm mb-1">Thanh Lọc Thị Trường Phi Chính Thức</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Loại bỏ các gian thương ẩn danh bán hàng trôi nổi không chứng từ. Tăng chi phí tuân thủ, thúc đẩy xu hướng chuyển sang cửa hàng chính quy.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- SECTION 6: CONCLUSION & STRATEGIC RECOMMENDATIONS -->
+        <section class="bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 text-white rounded-3xl p-8 shadow-xl">
+            <div class="max-w-3xl">
+                <span class="text-xs font-bold text-cyan-400 uppercase tracking-widest">Tổng Kết & Đề Xuất</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1 mb-4">3 Trụ Cột Thành Công Trong Kỷ Nguyên Mới</h2>
+                <p class="text-slate-300 text-sm leading-relaxed mb-8">
+                    Thị trường đồ cũ 5 tỷ USD không còn là nơi đầu cơ chụp giật dựa trên sự bất cân xứng thông tin. Doanh nghiệp muốn bứt phá cần tập trung vào 3 chiến lược nền tảng:
+                </p>
+
+                <div class="space-y-4">
+                    <div class="flex items-start gap-4 bg-slate-800/80 p-4 rounded-xl border border-slate-700">
+                        <div class="w-8 h-8 rounded-full bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-bold text-sm shrink-0">1</div>
+                        <div>
+                            <h3 class="font-bold text-cyan-300 text-sm">Chuẩn Hóa Kiểm Định & Xây Dựng Chữ "Tín"</h3>
+                            <p class="text-xs text-slate-300 mt-1">Đầu tư quy trình kiểm tra minh bạch (như 32 bước) và chính sách bảo hành rõ ràng để giải tỏa nỗi lo gian lận của khách hàng.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4 bg-slate-800/80 p-4 rounded-xl border border-slate-700">
+                        <div class="w-8 h-8 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center font-bold text-sm shrink-0">2</div>
+                        <div>
+                            <h3 class="font-bold text-blue-300 text-sm">Tối Ưu Hệ Sinh Thái Trade-In & Trả Góp</h3>
+                            <p class="text-xs text-slate-300 mt-1">Sử dụng dịch vụ "Thu cũ đổi mới" làm đòn bẩy hạ thấp rào cản chi trả, kết hợp các gói trả góp đòn bẩy tài chính để kích cầu nâng cấp.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4 bg-slate-800/80 p-4 rounded-xl border border-slate-700">
+                        <div class="w-8 h-8 rounded-full bg-teal-500/20 text-teal-400 flex items-center justify-center font-bold text-sm shrink-0">3</div>
+                        <div>
+                            <h3 class="font-bold text-teal-300 text-sm">Tuân Thủ Khung Pháp Lý & Thuế Trực Tuyến</h3>
+                            <p class="text-xs text-slate-300 mt-1">Chủ động minh bạch hóa hóa đơn chứng từ đầu vào/đầu ra, thích ứng với quy định khấu trừ thuế TMĐT để đảm bảo vận hành bền vững.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 border-t border-slate-800 text-slate-400 py-8 px-4 sm:px-8 text-center text-xs">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div>
+                © 2026 Executive Market Intelligence Group. Báo cáo độc lập về Ngành Bán Lẻ Công Nghệ Việt Nam.
+            </div>
+            <div class="flex space-x-4">
+                <span>Dữ liệu: Metric, Business Research Insights, Carousell</span>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- JavaScript Chart Initialization & Logic -->
+    <script>
+        // Label Wrapping Helper Logic (> 16 chars split into array of strings)
+        function wrapLabel(str, maxChars = 16) {
+            if (Array.isArray(str)) return str;
+            if (!str || str.length <= maxChars) return str;
+            const words = str.split(' ');
+            const lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + ' ' + word).trim().length > maxChars) {
+                    if (currentLine) lines.push(currentLine.trim());
+                    currentLine = word;
+                } else {
+                    currentLine += (currentLine ? ' ' : '') + word;
+                }
+            });
+            if (currentLine) lines.push(currentLine.trim());
+            return lines.length > 1 ? lines : lines[0];
+        }
+
+        // Shared Tooltip Configuration for Multi-line Labels
+        const globalTooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', function() {
+
+            // CHART 1: Market Size Projection (Bar Chart)
+            const ctx1 = document.getElementById('chartMarketSize').getContext('2d');
+            const labels1 = ['Năm 2022 (Thực tế)', 'Năm 2024 (Ước tính)', 'Năm 2026 (Dự báo)'].map(l => wrapLabel(l));
+            
+            new Chart(ctx1, {
+                type: 'bar',
+                data: {
+                    labels: labels1,
+                    datasets: [{
+                        label: 'Quy mô Thị trường Đồ Cũ Việt Nam (Tỷ USD)',
+                        data: [2.5, 3.8, 5.1],
+                        backgroundColor: ['#0891b2', '#2563eb', '#0d9488'],
+                        borderRadius: 8,
+                        barThickness: 40
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: globalTooltipConfig
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: { display: true, text: 'Tỷ USD ($)', font: { size: 11 } }
+                        }
+                    }
+                }
+            });
+
+            // CHART 2: Channel Characteristics (Radar Chart)
+            const ctx2 = document.getElementById('chartChannelRadar').getContext('2d');
+            const labels2 = ['Độ An Toàn Giao Dịch', 'Mức Tiết Kiệm Chi Phí', 'Tính Thanh Khoản', 'Kiểm Định Minh Bạch', 'Rủi Ro Gian Thương'].map(l => wrapLabel(l));
+
+            new Chart(ctx2, {
+                type: 'radar',
+                data: {
+                    labels: labels2,
+                    datasets: [
+                        {
+                            label: 'Chuỗi Bán Lẻ (Trade-in)',
+                            data: [95, 60, 85, 95, 10],
+                            borderColor: '#2563eb',
+                            backgroundColor: 'rgba(37, 99, 235, 0.2)',
+                            borderWidth: 2
+                        },
+                        {
+                            label: 'Diễn Đàn & MXH (C2C)',
+                            data: [40, 95, 60, 25, 85],
+                            borderColor: '#d97706',
+                            backgroundColor: 'rgba(217, 119, 6, 0.2)',
+                            borderWidth: 2
+                        },
+                        {
+                            label: 'Sàn TMĐT / Recommerce',
+                            data: [75, 80, 80, 65, 45],
+                            borderColor: '#0891b2',
+                            backgroundColor: 'rgba(8, 145, 178, 0.2)',
+                            borderWidth: 2
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 10 } } },
+                        tooltip: globalTooltipConfig
+                    },
+                    scales: {
+                        r: {
+                            angleLines: { color: '#e2e8f0' },
+                            suggestedMin: 0,
+                            suggestedMax: 100
+                        }
+                    }
+                }
+            });
+
+            // CHART 3: Phone Margins (Horizontal Bar)
+            const ctx3 = document.getElementById('chartPhoneMargin').getContext('2d');
+            const labels3 = ['Trade-in Chuỗi Lớn', 'Shop Nhỏ & Merchant', 'Sửa Chữa Phục Hồi & Bán'].map(l => wrapLabel(l));
+
+            new Chart(ctx3, {
+                type: 'bar',
+                data: {
+                    labels: labels3,
+                    datasets: [{
+                        label: 'Biên Lợi Nhuận Gộp Trung Bình (%)',
+                        data: [12.5, 25, 60],
+                        backgroundColor: ['#2563eb', '#d97706', '#e11d48'],
+                        borderRadius: 6,
+                        barThickness: 28
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: globalTooltipConfig
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            max: 80,
+                            title: { display: true, text: 'Phần trăm (%)', font: { size: 11 } }
+                        }
+                    }
+                }
+            });
+
+            // CHART 4: Laptop Depreciation & Margin (Grouped Bar)
+            const ctx4 = document.getElementById('chartLaptopData').getContext('2d');
+            const labels4 = ['Doanh Nhân Kỹ Thuật (ThinkPad/Latitude)', 'Mỏng Nhẹ Cao Cấp (MacBook/XPS)', 'Gaming & Máy Trạm (ROG/Legion)'].map(l => wrapLabel(l));
+
+            new Chart(ctx4, {
+                type: 'bar',
+                data: {
+                    labels: labels4,
+                    datasets: [
+                        {
+                            label: 'Khấu Hao Năm Đầu (%)',
+                            data: [32.5, 37.5, 42.5],
+                            backgroundColor: '#e11d48',
+                            borderRadius: 4
+                        },
+                        {
+                            label: 'Biên Lợi Nhuận Bán Lẻ (%)',
+                            data: [22, 18, 24],
+                            backgroundColor: '#059669',
+                            borderRadius: 4
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 11 } } },
+                        tooltip: globalTooltipConfig
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 50,
+                            title: { display: true, text: 'Tỷ lệ (%)', font: { size: 11 } }
+                        }
+                    }
+                }
+            });
+
+        });
+    </script>
+</body>
+</html>
