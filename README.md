@@ -9,9 +9,9 @@ Repository này chứa toàn bộ dữ liệu nghiên cứu, báo cáo chuyên s
 
 ## 🔗 Liên Kết Trực Tuyến (GitHub Pages)
 
-* 📊 **Cổng điều hướng trung tâm (Landing Hub):** [huytran1120.github.io/research-data](https://huytran1120.github.io/research-data/)
-* 📈 **Dashboard Chuyên đề 1 (Thị trường & Biên lợi nhuận):** [01_dashboard_thi_truong_vn.html](https://huytran1120.github.io/research-data/dashboards/01_dashboard_thi_truong_vn.html)
-* 🚀 **Dashboard Chuyên đề 2 (5 Mô hình kinh doanh đột phá):** [02_dashboard_mo_hinh_kinh_doanh.html](https://huytran1120.github.io/research-data/dashboards/02_dashboard_mo_hinh_kinh_doanh.html)
+* 📊 **Cổng điều hướng trung tâm (Landing Hub):** [https://huytran1120.github.io/research-data/](https://huytran1120.github.io/research-data/)
+* 📈 **Dashboard Chuyên đề 1 (Thị trường & Biên lợi nhuận):** [https://huytran1120.github.io/research-data/01_dashboard_thi_truong_vn.html](https://huytran1120.github.io/research-data/01_dashboard_thi_truong_vn.html)
+* 🚀 **Dashboard Chuyên đề 2 (5 Mô hình kinh doanh đột phá):** [https://huytran1120.github.io/research-data/02_dashboard_mo_hinh_kinh_doanh.html](https://huytran1120.github.io/research-data/02_dashboard_mo_hinh_kinh_doanh.html)
 
 ---
 
@@ -20,16 +20,14 @@ Repository này chứa toàn bộ dữ liệu nghiên cứu, báo cáo chuyên s
 ```text
 research-data/
 ├── 📄 index.html                            # Cổng điều hướng (Landing Hub) mở nhanh các Dashboard
+├── 📊 01_dashboard_thi_truong_vn.html       # Dashboard phân tích vĩ mô, kênh và biên lợi nhuận
+├── 🚀 02_dashboard_mo_hinh_kinh_doanh.html  # Dashboard so sánh 5 mô hình kinh doanh & công cụ tư vấn
 ├── 📄 README.md                              # Hướng dẫn chi tiết và tổng quan dự án
 ├── 📄 .gitignore                             # Cấu hình lọc file hệ thống & tạm thời
 │
-├── 📁 reports/                               # Các báo cáo phân tích chuyên sâu (Markdown)
-│   ├── 01_thi_truong_cong_nghe_cu_vn.md      # Chuyên đề 1: Cấu trúc, hành vi & biên lợi nhuận
-│   └── 02_mo_hinh_kinh_doanh_chien_luoc.md   # Chuyên đề 2: 5 Mô hình kinh doanh đột phá (2024-2027)
-│
-└── 📁 dashboards/                            # Bảng điều khiển tương tác trực quan (HTML/Chart.js)
-    ├── 01_dashboard_thi_truong_vn.html       # Dashboard phân tích vĩ mô, kênh và biên lợi nhuận
-    └── 02_dashboard_mo_hinh_kinh_doanh.html  # Dashboard so sánh 5 mô hình kinh doanh & công cụ tư vấn
+└── 📁 reports/                               # Các báo cáo phân tích chuyên sâu (Markdown)
+    ├── 01_thi_truong_cong_nghe_cu_vn.md      # Chuyên đề 1: Cấu trúc, hành vi & biên lợi nhuận
+    └── 02_mo_hinh_kinh_doanh_chien_luoc.md   # Chuyên đề 2: 5 Mô hình kinh doanh đột phá (2024-2027)
 ```
 
 ---
@@ -42,7 +40,7 @@ research-data/
 * **Tâm lý người tiêu dùng:** Giải mã "Nghịch lý AI PC" (người dùng chuyển sang flagship cũ đời trước như MacBook M1 Max), hội chứng sợ lừa đảo/kích pin và hành vi sẵn sàng trả "phí niềm tin".
 * **Định lượng biên lợi nhuận:** Phân tích chi tiết biên lãi theo từng nhóm: Smartphone (10% - 70%), Laptop (15% - 25% + mỏ neo Upsell RAM/SSD), Linh kiện PC (CPU/RAM an toàn biên mỏng vs VGA/Mainboard rủi ro biên dày).
 * **Khung pháp lý:** Tác động của việc siết thuế TMĐT, khấu trừ thuế tại nguồn và cuộc thanh lọc thị trường.
-* 👉 **Xem Dashboard tương tác:** [`dashboards/01_dashboard_thi_truong_vn.html`](dashboards/01_dashboard_thi_truong_vn.html)
+* 👉 **Xem Dashboard tương tác:** [`01_dashboard_thi_truong_vn.html`](01_dashboard_thi_truong_vn.html)
 
 ---
 
@@ -54,7 +52,7 @@ research-data/
   3. **Đầu cơ Chiến lược Phần cứng & Vi phẫu Apple Silicon (DFU Revive & Transplant):** Cứu máy gạch, vi hàn BGA, khôi phục dữ liệu SEP/NAND.
   4. **Thanh lý Tài sản CNTT Doanh nghiệp (ITAD) & Cung cấp Thiết bị Xanh cho Khối B2B:** Khai thác nguồn máy hết khấu hao từ doanh nghiệp.
   5. **Mạng lưới Hub Thu mua & Định giá Tự động hóa hỗ trợ bởi AI:** Mô hình Kiosk/Hub định giá tức thì dựa trên Computer Vision.
-* 👉 **Xem Dashboard tương tác:** [`dashboards/02_dashboard_mo_hinh_kinh_doanh.html`](dashboards/02_dashboard_mo_hinh_kinh_doanh.html)
+* 👉 **Xem Dashboard tương tác:** [`02_dashboard_mo_hinh_kinh_doanh.html`](02_dashboard_mo_hinh_kinh_doanh.html)
 
 ---
 
