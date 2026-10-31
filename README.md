@@ -3,7 +3,7 @@
 
 🌐 **Trang Web Trực Tuyến (Live Website):** [https://huytran1120.github.io/research-data/](https://huytran1120.github.io/research-data/)
 
-Repository này chứa toàn bộ dữ liệu nghiên cứu, báo cáo chuyên sâu và các bảng điều khiển trực quan hóa (Interactive Web Dashboards) về thị trường thiết bị điện tử, công nghệ đã qua sử dụng tại Việt Nam.
+> **Nơi tổng hợp data research:** Dữ liệu nghiên cứu thị trường, báo cáo phân tích chuyên sâu và các bảng điều khiển trực quan hóa (Interactive Web Dashboards) về thị trường & các mô hình kinh doanh công nghệ đã qua sử dụng tại Việt Nam (2024 - 2027).
 
 ---
 
