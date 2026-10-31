@@ -1,7 +1,17 @@
 # 📱 Vietnam Recommerce & Refurbished Electronics Research
 ## Nghiên Cứu Chuyên Sâu: Thị Trường & Mô Hình Kinh Doanh Công Nghệ Cũ Tại Việt Nam (2024 - 2027)
 
+🌐 **Trang Web Trực Tuyến (Live Website):** [https://huytran1120.github.io/research-data/](https://huytran1120.github.io/research-data/)
+
 Repository này chứa toàn bộ dữ liệu nghiên cứu, báo cáo chuyên sâu và các bảng điều khiển trực quan hóa (Interactive Web Dashboards) về thị trường thiết bị điện tử, công nghệ đã qua sử dụng tại Việt Nam.
+
+---
+
+## 🔗 Liên Kết Trực Tuyến (GitHub Pages)
+
+* 📊 **Cổng điều hướng trung tâm (Landing Hub):** [huytran1120.github.io/research-data](https://huytran1120.github.io/research-data/)
+* 📈 **Dashboard Chuyên đề 1 (Thị trường & Biên lợi nhuận):** [01_dashboard_thi_truong_vn.html](https://huytran1120.github.io/research-data/dashboards/01_dashboard_thi_truong_vn.html)
+* 🚀 **Dashboard Chuyên đề 2 (5 Mô hình kinh doanh đột phá):** [02_dashboard_mo_hinh_kinh_doanh.html](https://huytran1120.github.io/research-data/dashboards/02_dashboard_mo_hinh_kinh_doanh.html)
 
 ---
 
